@@ -1,17 +1,20 @@
+{% load static %}
+{% include 'blog/navbar.html' %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{% static 'blog/styles.css' %}">
     {% if title %}
         <title>{{ title }}</title>
     {% else %}
-        <title>{{ blog website}}</title>
+        <title>blog website</title>
     {% endif %}
 </head>
 <body>
-    {% block navbar %}{% endbock navbar %}
+    {% block navbar %}{% endblock navbar %}
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-2"></div>
