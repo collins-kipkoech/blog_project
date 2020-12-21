@@ -1,6 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import Post
-from django.contrib.auth.forms import UserCreationForm
+from .forms import RegisterForm
 from django.contrib import messages
 
 
@@ -12,14 +12,14 @@ def home_view(request):
 
 def register(request):
     if request.method == 'POST':
-        form = UserCreationForm(request.POST)
+        form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
             messages.success(request,'Your account has been created successfully')
             return redirect('home-view')
     else:
-        form = UserCreationForm()
-        messages.warning(request,'Enter details')
+        form = RegisterForm()
+       
     context = {
         'form':form,
     }

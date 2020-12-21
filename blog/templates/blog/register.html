@@ -1,31 +1,20 @@
 {% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
 {% block content %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="description" content="This Is a page practice about HTML 5 inputs & forms">
-<link rel="stylesheet" type="text/css" href="styles.css">
-<title>Input & Forms</title>
-</head>
-<body>
- <header>
 
- </header>
  <main>
   <div class="loginBox">
    <h2>Sign Up</h2>
    
-  <form>
+  <form method="POST">
    {% csrf_token %}
-   {{ form }}
+   {{ form | crispy }}
    	<input type="submit" name="Submit">
   
-  <p>Already have an account? <a href="#">Sign In</a></p>
+  <p>Already have an account? <a href="{% url 'login' %}">Sign In</a></p>
   </form>
   </div>
  </main>
-</body>
-</html>
+
 {% endblock content %}
